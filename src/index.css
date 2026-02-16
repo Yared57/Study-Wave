@@ -1,0 +1,81 @@
+:root {
+  background-color: #1a1a1a; /* Darker, neutral background */
+  color: #e0e0e0;
+}
+
+body {
+  margin: 0;
+  display: block; /* Remove flex from body to allow scrolling */
+  min-height: 100vh;
+}
+
+.Document-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #1a1a1a;
+  min-height: 100vh;
+}
+
+/* Floating Toolbar */
+.Toolbar {
+  position: fixed;
+  bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(45, 45, 45, 0.85); /* Glass-morphism */
+  backdrop-filter: blur(10px);
+  padding: 12px 24px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.Toolbar button {
+  background: #333;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.Toolbar button:hover:not(:disabled) {
+  background: #646cff;
+  transform: scale(1.1);
+}
+
+.Toolbar button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.page-info {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+/* PDF Page Styling */
+.react-pdf__Page {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Remove default header styling if necessary */
+.Document-Header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
