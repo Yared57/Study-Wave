@@ -1,0 +1,218 @@
+:root {
+  background-color: #1a1a1a; /* Darker, neutral background */
+  color: #e0e0e0;
+}
+/* Welcome Screen */
+.Welcome-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.Welcome-title {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #646cff, #8f94fb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.Welcome-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.7;
+  margin-bottom: 40px;
+  max-width: 400px;
+}
+
+/* Upload Card */
+.Upload-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 40px 60px;
+  background: rgba(45, 45, 45, 0.85);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(10px);
+}
+
+.Upload-card:hover {
+  transform: translateY(-5px);
+  border-color: #646cff;
+  box-shadow: 0 10px 30px rgba(100, 108, 255, 0.3);
+}
+
+.Upload-icon {
+  font-size: 2rem;
+}
+/* Layout */
+.Reader-layout {
+  display: flex;
+  background: #1a1a1a;
+  color: white;
+}
+
+/* Sidebar */
+.Sidebar {
+  width: 130px;
+  height: 100vh;
+  overflow-y: auto;
+  background: #111;
+  padding: 10px;
+  border-right: 1px solid #333;
+}
+
+.Thumbnail {
+  margin-bottom: 10px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.2s ease;
+}
+
+.Thumbnail:hover {
+  opacity: 1;
+}
+
+.Thumbnail.active {
+  border: 2px solid #646cff;
+  opacity: 1;
+}
+
+/* Document area */
+.Document-container {
+  flex: 1;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 30px;
+}
+
+/* Pages */
+.Page-wrapper {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Top Toolbar */
+.Topbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  background: rgba(30,30,30,0.9);
+  backdrop-filter: blur(10px);
+  z-index: 50;
+}
+
+.Topbar button {
+  background: #333;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.Topbar button:hover {
+  background: #646cff;
+}
+
+/* Dark Mode PDF Trick */
+.dark .react-pdf__Page canvas {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+.dark {
+  background: #121212;
+}
+
+.Upload-text {
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+
+body {
+  margin: 0;
+  display: block; /* Remove flex from body to allow scrolling */
+  min-height: 100vh;
+}
+
+.Document-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #1a1a1a;
+  min-height: 100vh;
+}
+
+/* Floating Toolbar */
+.Toolbar {
+  position: fixed;
+  bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(45, 45, 45, 0.85); /* Glass-morphism */
+  backdrop-filter: blur(10px);
+  padding: 12px 24px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.Toolbar button {
+  background: #333;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.Toolbar button:hover:not(:disabled) {
+  background: #646cff;
+  transform: scale(1.1);
+}
+
+.Toolbar button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.page-info {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+/* PDF Page Styling */
+.react-pdf__Page {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Remove default header styling if necessary */
+.Document-Header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,0 +1,172 @@
+:root {
+  --wave-blue: #0077b6;
+}
+
+/* =========================
+   THEME SYSTEM
+========================= */
+
+.app {
+  --bg-main: #f9fafb;
+  --text-main: #111827;
+  --card-bg: #ffffff;
+  --border-color: #e5e7eb;
+
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.app.dark {
+  --bg-main: #0f172a;
+  --text-main: #e2e8f0;
+  --card-bg: #1e293b;
+  --border-color: #334155;
+}
+
+/* =========================
+   BODY RESET
+========================= */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  height: 70px;
+
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  transition: all 0.3s ease;
+}
+
+/* Dark mode glow */
+.app.dark .header {
+  box-shadow: 0 0 25px rgba(79, 70, 229, 0.25);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.imgLogo {
+  height: 45px;
+  width: 45px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.imgLogo:hover {
+  transform: rotate(-10deg);
+}
+
+.header-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(45deg, #0077b6, #00b4d8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.study-form {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.ingredient-input {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+  background: var(--card-bg);
+  color: var(--text-main);
+}
+
+.ingredient-input:focus {
+  outline: none;
+  border-color: var(--wave-blue);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+  padding: 12px 24px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+button[type="submit"] {
+  background-color: var(--wave-blue);
+  color: white;
+}
+
+button[type="submit"]:hover {
+  background-color: #023e8a;
+  box-shadow: 0 4px 12px rgba(0, 119, 182, 0.3);
+}
+
+/* =========================
+   LIST
+========================= */
+
+ul {
+  padding: 0;
+  margin-top: 2rem;
+}
+
+li {
+  list-style: none;
+  background: var(--card-bg);
+  margin-bottom: 8px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border-left: 4px solid var(--wave-blue);
+  font-weight: 500;
+}
+
+/* =========================
+   KATEX FIX
+========================= */
+
+.app.dark .katex {
+  color: var(--text-main) !important;
+}
+
+.app.dark .katex-display {
+  color: var(--text-main) !important;
+}
