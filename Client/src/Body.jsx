@@ -1,7 +1,7 @@
 import { useState } from "react" 
 import getStudytipsFromMistral from "./APAPI";
 import Notes from "./Note";
-import Header from "./Header";
+import WaveHeader from "./Wave";
 export default function StudyForm() {
     const [darkMode,setDarkmode]=useState(false)
     const [loading,setLoading]=useState(false)
@@ -30,7 +30,7 @@ export default function StudyForm() {
 
     return (
         <div className={darkMode ? "app dark" : "app"}> 
-        
+        <WaveHeader/>
         <main>
         
             <form className="study-form"  onSubmit={(e) => {

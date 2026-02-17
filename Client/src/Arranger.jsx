@@ -58,7 +58,7 @@ export default function StudyWorkspace({ file }) {
         className="Toggle-button"
         onClick={() => setAssistantOpen(prev => !prev)}
       >
-        {assistantOpen ? "Close AI" : "Open AI"}
+        {assistantOpen ? "Close Wave" : "Open Wave"}
       </button>
     </div>
   );

@@ -436,3 +436,26 @@ li {
   flex-shrink: 0; 
   overflow: hidden;
 }
+/* Targets the container holding your AI Form and Notes */
+.Assistant-panel {
+  height: 100% !important; /* Forces it to fill the workspace height */
+  overflow-y: auto !important; /* Enables vertical scrolling */
+  display: block !important; /* Ensures it behaves as a scrollable block */
+}
+
+/* Fixes the inner app wrapper so it doesn't stay fixed height */
+.Assistant-panel .app {
+  height: auto !important; 
+  min-height: 100%;
+  display: block !important;
+}
+
+/* Optional: Custom scrollbar to match your Wave theme */
+.Assistant-panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.Assistant-panel::-webkit-scrollbar-thumb {
+  background: #646cff;
+  border-radius: 10px;
+}
