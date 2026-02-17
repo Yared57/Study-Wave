@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import Documentreader from './DocumentRender'
+import StudyWorkspace from './Arranger'
 import Header from './Header'
 import { useState } from 'react'
 function Display(){
@@ -32,7 +33,7 @@ function Display(){
         </div>
       )}
 
-      {file && <Documentreader file={file} />}
+      {file && <StudyWorkspace file={file} />}
     </>
     </>
   )

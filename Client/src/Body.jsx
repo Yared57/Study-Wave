@@ -30,7 +30,7 @@ export default function StudyForm() {
 
     return (
         <div className={darkMode ? "app dark" : "app"}> 
-        <Header darkMode={darkMode} onClick={toggletheme}/>
+        
         <main>
         
             <form className="study-form"  onSubmit={(e) => {
