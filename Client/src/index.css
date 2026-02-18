@@ -459,3 +459,122 @@ li {
   background: #646cff;
   border-radius: 10px;
 }
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: background-color 0.3s ease;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+/* When checked */
+.switch input:checked + .slider {
+  background-color: #646cff;
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(24px);
+}
+/* =========================
+   AUDIO PLAYER
+========================= */
+
+.header-center {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* File input styling */
+.header-center input[type="file"] {
+  background: var(--card-bg);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Audio container */
+
+/* Header Container */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  height: 70px; /* Fixed height is crucial for seamless look */
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+/* Audio Player Section */
+.header-center {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(100, 108, 255, 0.1); /* Subtle wave blue tint */
+  padding: 5px 15px;
+  border-radius: 50px;
+  border: 1px solid var(--border-color);
+}
+
+/* Style the file input button to look like a Wavey button */
+.header-center input[type="file"] {
+  font-size: 0.8rem;
+  color: var(--text-main);
+}
+
+.header-center input[type="file"]::-webkit-file-upload-button {
+  background: linear-gradient(45deg, #0077b6, #00b4d8);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: transform 0.2s;
+}
+
+.header-center input[type="file"]::-webkit-file-upload-button:hover {
+  transform: scale(1.05);
+}
+
+/* Compact Audio Player */
+audio {
+  height: 32px; /* Keeps the header slim */
+  border-radius: 50px;
+  filter: invert(10%) hue-rotate(180deg) brightness(1.5); /* Makes standard player match dark theme */
+}
+
+/* Dark Mode specific tweaks */
+.app.dark audio {
+  filter: invert(100%) hue-rotate(180deg) brightness(1.2);
+}

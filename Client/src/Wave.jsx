@@ -6,12 +6,7 @@ export default function WaveHeader() {
                 <span className="header-title">Wave</span>
             </div>
   
-            <div className="header-right">
-                <label className="switch">
-                    
-                    <span className="slider"></span>
-                </label>
-            </div>
+            
         </header>
     )
   }
