@@ -578,3 +578,21 @@ audio {
 .app.dark audio {
   filter: invert(100%) hue-rotate(180deg) brightness(1.2);
 }
+.app {
+  --bg-main: #f9fafb;
+  --text-main: #111827;
+  --card-bg: #ffffff;
+  --border-color: #e5e7eb;
+
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.app.dark {
+  --bg-main: #0f172a;
+  --text-main: #e2e8f0;
+  --card-bg: #1e293b;
+  --border-color: #334155;
+}

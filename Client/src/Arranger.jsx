@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import StudyForm from "./Body";
 import Documentreader from "./DocumentRender";
 
-export default function StudyWorkspace({ file }) {
+export default function StudyWorkspace({ file ,Theme}) {
   const [assistantOpen, setAssistantOpen] = useState(true);
   const [panelWidth, setPanelWidth] = useState(450); // Initial width in pixels
   const isResizing = useRef(false);
@@ -38,7 +38,7 @@ export default function StudyWorkspace({ file }) {
         className="PDF-area" 
         style={{ width: assistantOpen ? `calc(100% - ${panelWidth}px)` : "100%" }}
       >
-        <Documentreader file={file} />
+        <Documentreader file={file} Theme={Theme} />
       </div>
 
       {/* The Resizer Handle (Only show if AI is open) */}
@@ -51,7 +51,7 @@ export default function StudyWorkspace({ file }) {
         className={`Assistant-panel ${assistantOpen ? "open" : ""}`}
         style={{ width: assistantOpen ? `${panelWidth}px` : "0px" }}
       >
-        <StudyForm />
+        <StudyForm Theme={Theme}/>
       </div>
 
       <button 

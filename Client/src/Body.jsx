@@ -2,15 +2,12 @@ import { useState } from "react"
 import getStudytipsFromMistral from "./APAPI";
 import Notes from "./Note";
 import WaveHeader from "./Wave";
-export default function StudyForm() {
-    const [darkMode,setDarkmode]=useState(false)
+export default function StudyForm({Theme}) {
     const [loading,setLoading]=useState(false)
     const [clicked,setClicked]=useState(false)
     const [note,setNote]=useState("")
     
-  function toggletheme(){
-    setDarkmode(prev=>!prev)
-  }
+  
     
     async function Getresponse(formdata){
         
@@ -29,7 +26,7 @@ export default function StudyForm() {
 
 
     return (
-        <div className={darkMode ? "app dark" : "app"}> 
+        <div className={Theme ? "app dark" : "app"}> 
         <WaveHeader/>
         <main>
         

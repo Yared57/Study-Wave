@@ -6,12 +6,16 @@ import Header from './Header'
 import { useState } from 'react'
 function Display(){
   const [file,setFile]=useState(null)
+  const [LofiMode,setLofiMode]=useState(false)
+  function LofiSynthMode(){
+      setLofiMode(prev=>!prev)
+  }
   function handleFile(e){
     setFile(e.target.files[0])
   }
   return (
     <>
-    <Header/>
+    <Header onClick={LofiSynthMode}/>
        <>
       {!file && (
         <div className="Welcome-container">
@@ -33,7 +37,7 @@ function Display(){
         </div>
       )}
 
-      {file && <StudyWorkspace file={file} />}
+      {file && <StudyWorkspace file={file} Theme={LofiMode}/>}
     </>
     </>
   )

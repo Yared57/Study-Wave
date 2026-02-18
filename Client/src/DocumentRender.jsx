@@ -7,11 +7,10 @@ import { Document, Page, pdfjs } from 'react-pdf'
 pdfjs.GlobalWorkerOptions.workerSrc =
   `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`
 
-  export default function Documentreader({ file }) {
+  export default function Documentreader({ file,Theme }) {
 
     const [numPages, setNumPages] = useState(null)
     const [scale, setScale] = useState(1.2)
-    const [darkMode, setDarkMode] = useState(false)
     const [selectedPage, setSelectedPage] = useState(1)
   
     function onDocumentLoadSuccess({ numPages }) {
@@ -24,7 +23,7 @@ pdfjs.GlobalWorkerOptions.workerSrc =
         onLoadSuccess={onDocumentLoadSuccess}
         loading={<p>Loading PDF...</p>}
       >
-        <div className={`Reader-layout ${darkMode ? "dark" : ""}`}>
+        <div className={`Reader-layout ${Theme ? "dark" : ""}`}>
   
           {/* Sidebar */}
           <div className="Sidebar">
@@ -52,9 +51,9 @@ pdfjs.GlobalWorkerOptions.workerSrc =
               <button onClick={() => setScale(prev => prev - 0.2)}>-</button>
               <span>{Math.round(scale * 100)}%</span>
               <button onClick={() => setScale(prev => prev + 0.2)}>+</button>
-              <button onClick={() => setDarkMode(prev => !prev)}>
+             {/*} <button onClick={() => setDarkMode(prev => !prev)}>
                 {darkMode ? "Light Mode" : "Dark Mode"}
-              </button>
+              </button>*/}
             </div>
   
             {numPages &&

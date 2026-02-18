@@ -1,5 +1,5 @@
 import { useState } from "react"
-export default function Header({ darkMode, onClick }) {
+export default function Header({ onClick }) {
     const [file,setFile]=useState(null)
     function handleFile(e){
         setFile(e.target.files[0])
@@ -25,7 +25,6 @@ export default function Header({ darkMode, onClick }) {
               <label className="switch">
                   <input 
                       type="checkbox"
-                      checked={darkMode}
                       onChange={onClick}
                   />
                   <span className="slider"></span>
