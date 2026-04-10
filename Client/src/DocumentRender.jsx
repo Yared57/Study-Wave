@@ -7,69 +7,63 @@ import { Document, Page, pdfjs } from 'react-pdf'
 pdfjs.GlobalWorkerOptions.workerSrc =
   `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`
 
-  export default function Documentreader({ file,Theme }) {
+export default function Documentreader({ file, Theme }) {
+  const [numPages, setNumPages] = useState(null)
+  const [scale, setScale] = useState(1.2)
+  const [selectedPage, setSelectedPage] = useState(1)
 
-    const [numPages, setNumPages] = useState(null)
-    const [scale, setScale] = useState(1.2)
-    const [selectedPage, setSelectedPage] = useState(1)
-  
-    function onDocumentLoadSuccess({ numPages }) {
-      setNumPages(numPages)
-    }
-  
-    return (
-      <Document
-        file={file}
-        onLoadSuccess={onDocumentLoadSuccess}
-        loading={<p>Loading PDF...</p>}
-      >
-        <div className={`Reader-layout ${Theme ? "dark" : ""}`}>
-  
-          {/* Sidebar */}
-          <div className="Sidebar">
-            {numPages &&
-              Array.from(new Array(numPages), (_, index) => (
-                <div
-                  key={index}
-                  className={`Thumbnail ${selectedPage === index + 1 ? "active" : ""}`}
-                  onClick={() => {
-                    setSelectedPage(index + 1)
-                    document
-                      .getElementById(`page_${index + 1}`)
-                      ?.scrollIntoView({ behavior: "smooth" })
-                  }}
-                >
-                  <Page pageNumber={index + 1} width={100} />
-                </div>
-              ))}
-          </div>
-  
-          {/* Main Viewer */}
-          <div className="Document-container">
-  
-            <div className="Topbar">
-              <button onClick={() => setScale(prev => prev - 0.2)}>-</button>
-              <span>{Math.round(scale * 100)}%</span>
-              <button onClick={() => setScale(prev => prev + 0.2)}>+</button>
-             {/*} <button onClick={() => setDarkMode(prev => !prev)}>
-                {darkMode ? "Light Mode" : "Dark Mode"}
-              </button>*/}
-            </div>
-  
-            {numPages &&
-              Array.from(new Array(numPages), (_, index) => (
-                <div
-                  key={index}
-                  id={`page_${index + 1}`}
-                  className="Page-wrapper"
-                >
-                  <Page pageNumber={index + 1} scale={scale} />
-                </div>
-              ))}
-          </div>
-  
-        </div>
-      </Document>
-    )
+  function onDocumentLoadSuccess({ numPages }) {
+    setNumPages(numPages)
   }
-  
+
+  return (
+    <Document
+      file={file}
+      onLoadSuccess={onDocumentLoadSuccess}
+      loading={<div className="loading-pdf">Loading PDF...</div>}
+    >
+      {/* The Theme class here helps with the PDF filter logic in CSS */}
+      <div className={`Reader-layout ${Theme ? "dark" : ""}`}>
+        
+        {/* Sidebar: Now uses --card-bg variable */}
+        <div className="Sidebar">
+          {numPages &&
+            Array.from(new Array(numPages), (_, index) => (
+              <div
+                key={index}
+                className={`Thumbnail ${selectedPage === index + 1 ? "active" : ""}`}
+                onClick={() => {
+                  setSelectedPage(index + 1)
+                  document
+                    .getElementById(`page_${index + 1}`)
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }}
+              >
+                <Page pageNumber={index + 1} width={100} />
+              </div>
+            ))}
+        </div>
+
+        {/* Main Viewer: Now uses --bg-main variable */}
+        <div className="Document-container">
+          <div className="Topbar">
+            <button onClick={() => setScale(prev => prev - 0.2)}>-</button>
+            <span className="scale-display">{Math.round(scale * 100)}%</span>
+            <button onClick={() => setScale(prev => prev + 0.2)}>+</button>
+          </div>
+
+          {numPages &&
+            Array.from(new Array(numPages), (_, index) => (
+              <div
+                key={index}
+                id={`page_${index + 1}`}
+                className="Page-wrapper"
+              >
+                <Page pageNumber={index + 1} scale={scale} />
+              </div>
+            ))}
+        </div>
+      </div>
+    </Document>
+  )
+}

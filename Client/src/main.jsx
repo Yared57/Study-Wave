@@ -15,9 +15,13 @@ function Display(){
   }
   return (
     <>
-    <Header onClick={LofiSynthMode}/>
-       <>
-      {!file && (
+    
+    <div className={LofiMode ? "app dark" : "app"}> {/* Wrapper around EVERYTHING */}
+    <Header onClick={LofiSynthMode} currentTheme={LofiMode} />
+    {!file ? (
+      <div className="Welcome-container">
+        <h1 className="Welcome-title">StudyWave</h1>
+        {!file && (
         <div className="Welcome-container">
           <h1 className="Welcome-title">StudyWave</h1>
           <p className="Welcome-subtitle">
@@ -38,8 +42,15 @@ function Display(){
       )}
 
       {file && <StudyWorkspace file={file} Theme={LofiMode}/>}
+      </div>
+    ) : (
+      <StudyWorkspace file={file} Theme={LofiMode} />
+    )}
+  </div>
+       
+      
     </>
-    </>
+   
   )
 }
 createRoot(document.getElementById('root')).render(
