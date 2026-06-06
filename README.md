@@ -45,3 +45,42 @@ Ensure you have the following installed:
    ```bash
    git clone [https://github.com/yourusername/study-wave.git](https://github.com/yourusername/study-wave.git)
    cd study-wave
+   npm install
+   cd client
+   npm install
+   cd ..
+ Environment Configuration:
+Create a .env file in the root of your backend directory to store your sensitive keys. Do not commit this file to source control.
+
+Root/Backend .env  
+   ```bash
+   PORT=5000
+   MISTRAL_API_KEY=your_mistral_api_key_here
+  ```
+Running the Application:
+
+To run the backend server:
+
+Bash
+
+
+npm run start
+To run the frontend client:
+Bash
+```
+cd client
+npm run dev
+```
+Open your browser and navigate to the local server address provided by Vite (typically http://localhost:5173).
+
+System Prompting & Architecture
+Study Wave achieves targeted educational support by configuring the Mistral AI client with specialized system personas. Instead of functioning as a generic chatbot, the model is governed by specific instructions that enforce:
+
+Socratic Questioning: Prompting students to think through complex engineering, mathematical, or scientific problems rather than providing immediate final solutions.
+
+Structured Markdown Layouts: Formatting solutions with clean typographic structures, clear equations, and structured lists for enhanced readability.
+
+Step-by-Step Breakdowns: Deconstructing complex academic modules into manageable, logical components.
+ 
+
+    
