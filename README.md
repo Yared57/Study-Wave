@@ -43,7 +43,7 @@ Ensure you have the following installed:
 
 1. **Clone the Repository:**
    ```bash
-   git clone [https://github.com/yourusername/study-wave.git](https://github.com/Yared57/study-wave.git)
+     git clone https://github.com/Yared57/Study-Wave.git
    cd study-wave
    npm install
    cd client
